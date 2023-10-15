@@ -1,0 +1,81 @@
+{ 
+    "path_train_rgb" : "/home/veronica/Scrivania/RSIm/Dataset/Train/RGB/",
+    "path_val_rgb" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/RGB/",
+    "path_test_rgb" : "/home/veronica/Scrivania/RSIm/Dataset/Test/RGB/",
+
+    "path_train_hs" : "/home/veronica/Scrivania/RSIm/Dataset/Train/HS/",
+    "path_val_hs" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/HS/",
+    "path_test_hs" : "/home/veronica/Scrivania/RSIm/Dataset/Test/HS/",
+
+    "path_train_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Train/DEM/",
+    "path_val_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/DEM/",
+    "path_test_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Test/DEM/",
+
+    "path_label" : "/home/veronica/Scrivania/RSIm/Dataset/Labels/Labels/tif/",
+    "path_train_txt" : "/home/veronica/Scrivania/RSIm/Dataset/List/train_set.txt",
+    "path_val_txt" : "/home/veronica/Scrivania/RSIm/Dataset/List/validation_set.txt",
+    "path_test_txt" : "/home/veronica/Scrivania/RSIm/Dataset/List/test_set.txt",
+
+    "path_max_dict" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/max_dict.pkl",
+    "path_min_dict" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/min_dict.pkl",
+    "path_max_dict01" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/max_dict_01.pkl",
+    "path_mean_dict01" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/mean_dict_01.pkl",
+    "path_std_dict01" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/std_dict_01.pkl",
+
+    "ckpt_path" : "/home/veronica/Scrivania/RSIm/Fusion/Method1/prova1_checkpoint.ckpt",
+    
+    "input_size": [256, 352],
+    "train_size": [256, 256],
+    "train_size2": [224, 224],
+    "num_classes":8,
+    "p_aug":0.3,
+
+    "batch_size":4, 
+    "learning_rate": 0.0001,
+    "learning_rate_onemod": 0.0001,
+    "weight_decay":0.00001,
+
+    "n_epochs": 200,
+    
+    "accelerator": "gpu",
+    "patience" : 10,
+    "lamda": 1e-5,
+
+    "rgb_chans":3, 
+    "hs_chans":4, 
+    "dem_chans":1,
+
+    "in_chans_early_fusion":8,
+    "patch_size":4,
+    "embed_dim_T_S": 96,
+    "embed_dim_MF_CL": 48,  
+    "embed_dim_B": 128, 
+    "embed_dim_L": 192, 
+    "embed_dim_CA": 144,
+
+    "in_chans":[3,4, 1],
+    "in_chans2": [3,5],
+
+    "embed_dim_CF":24,
+    "embed_dim_after_CF":192,
+    
+    "depths_T": [2, 2, 6, 2],
+    "depth_S_B_L": [2, 2, 18, 2],
+    "num_heads": [3, 6, 12, 24],
+    "window_size" : 7,
+    "mlp_ratio": 4.0,
+    "drop_rate": 0.0,
+    "attn_drop_rate": 0.0,
+    "drop_path_rate": 0.3,
+
+    "embed_dim_cf1" : 32,
+
+    "feature_channels_upernet_T_S": [96, 192, 384, 768], 
+    "feature_channels_upernet_MF_CL" : [144, 288, 576, 1152],
+    "feature_channels_upernet_MF": [288, 576, 1152, 2304],
+    "features_channels_upernet_CF" : [192, 384, 768, 1536],
+    "features_channels_upernet_CA" : [384, 768, 1536, 3072],
+    "features_channels_upernet_B": [256, 512, 1024, 2048]
+  }
+
+

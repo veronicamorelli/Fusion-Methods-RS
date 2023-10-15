@@ -1,0 +1,87 @@
+Experiments:
+
+1.1 Early_fusion1 --> DONE
+    - batch_size = 16
+    - learning_rate = 0.001
+    - dim_patch_embed = [96, 192, 384, 768]
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+1.1 Early_fusion2 --> DONE
+    - batch_size = 16
+    - learning_rate = 0.0001
+    - dim_patch_embed = [96, 192, 384, 768]
+    - on_epoch=True nel log_dict
+
+1.3 Early_fusion3 --> TODO
+    - batch_size = 32
+    - learning_rate = 0.0001
+    - dim_patch_embed = [96, 192, 384, 768]
+    - on_epoch=True nel log_dict
+
+2.1 Token_fusion_patch_embed1 --> DONE
+    - batch_size = 16
+    - learning_rate = 0.001
+    - dim_patch_embed = [96, 192, 384, 768] where 96 is given by concatenation of 3 linear embedding of dimension 32
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+2.2 Token_fusion_patch_embed1 --> DONE
+    - batch_size = 32
+    - learning_rate = 0.0001
+    - dim_patch_embed = [96, 192, 384, 768] where 96 is given by concatenation of 3 linear embedding of dimension 32
+
+2.3 Token_fusion_patch_embed1 --> TODO
+    - batch_size = 32
+    - learning_rate = 0.001
+    - dim_patch_embed = [96, 192, 384, 768] where 96 is given by concatenation of 3 linear embedding of dimension 32
+
+3. Channel_fusion_patch_embed1 --> DONE
+    - batch_size = 12
+    - learning_rate = 0.001
+    - dim_patch_embed = [192, 384, 768, 1536] where 192 is given by concatenation of 8 linear embedding of dimension 24
+    --> TO DO: experiments with different batch_size (in that case I have to change also dim_first_linear_embedding), learning_rate and momentum in loss (?)
+    --> IMP: al dimensions of linear embedding should be given by a number that is a multiple of 96 and that is divided by 8 (ex: 192/2=96, 192/8=24)
+
+4. Middle_fusion_channel_level1 --> WORK IN PROGRESS
+    - 188 M param
+    - batch_size = 6
+    - learning_rate = 0.001
+    - dim_patch_embed = [288, 576, 1152, 2304] where 288 is given by concatenation of the the output of each transformer block (96*3=288, 192*3=576, 384*3=1152, 768*3=2304)
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+4.2 Middle_fusion_channel_level2 --> TO DO
+    - RIDURRE LA DIMENSIONE DELL#EMBEDDING INIZIALE
+    - batch_size = ?
+    - learning_rate = 0.001
+    - dim_patch_embed = [288, 576, 1152, 2304] where 288 is given by concatenation of the the output of each transformer block (96*3=288, 192*3=576, 384*3=1152, 768*3=2304)
+
+5. Middle_fusion_token_level_full1 (token fusion window attention at each transformer block) --> DONE
+    - 188 M param
+    - batch_size = 4
+    - learning_rate = 0.001
+    - dim_patch_embed = [288, 576, 1152, 2304] where 288 is given by concatenation of the the output of each transformer block (96*3=288, 192*3=576, 384*3=1152, 768*3=2304)
+    --> TO DO: token fusion window attention at different transformer block
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+5.2 Middle_fusion_token_level_full1 (token fusion window attention at each transformer block) --> TO DO
+    - RIDURRE LA DIMENSIONE DELL#EMBEDDING INIZIALE
+    - batch_size = 4
+    - learning_rate = 0.001
+    - dim_patch_embed = [288, 576, 1152, 2304] where 288 is given by concatenation of the the output of each transformer block (96*3=288, 192*3=576, 384*3=1152, 768*3=2304)
+    --> TO DO: token fusion window attention at different transformer block
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+6. Middle_fusion_cross_attention_full_noDEM1 (window cross attention at each transformer block) --> TO DO
+    - NB: without DEM
+    - batch_size = ?
+    - learning_rate = 0.001
+    - dim_patch_embed = [192, 384, 768, 1536] where 192 is given by concatenation of the the output of each transformer block (96*2=192, 192*2=384, 384*2=768, 768*2=1536)
+    --> TO DO: token fusion window attention at different transformer block
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
+
+7. Middle_fusion_cross_attention_full_DEMasPE1 --> TO DO
+    - NB: with DEM
+    - batch_size = ?
+    - learning_rate = 0.001
+    - dim_patch_embed = [288, 576, 1152, 2304] where 288 is given by concatenation of the the output of each transformer block (96*3=288, 192*3=576, 384*3=1152, 768*3=2304)
+    --> TO DO: token fusion window attention at different transformer block
+    --> TO DO: experiments with different batch_size, learning_rate and momentum in loss (?)
