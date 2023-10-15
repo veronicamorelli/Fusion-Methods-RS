@@ -33,7 +33,7 @@ AVAIL_GPUS = min(1, torch.cuda.device_count())
 torch.use_deterministic_algorithms(True)
  
 import json
-with open('/home/veronica/Scrivania/RSIm/Fusion/Method_1/config.json', 'r') as f:
+with open('./config.json', 'r') as f:
   config = json.load(f)
 
 # LOAD and DATA AUGMENTATION
@@ -95,9 +95,9 @@ transforms_train = normalize_rgb, normalize_hs, normalize_dem, transform_compose
 transforms_val = normalize_rgb, normalize_hs, normalize_dem, transform_composed_alb_val
 
 # DATASET
-train_set = SegmentationDataset(path_train_rgb, path_train_hs, path_train_dem, path_label, path_train_txt, path_max_dict, path_min_dict, transform=transforms_train, mod="hs") 
-val_set = SegmentationDataset(path_val_rgb, path_val_hs, path_val_dem, path_label, path_val_txt, path_max_dict, path_min_dict, transform=transforms_val, mod="hs") 
-test_set = SegmentationDataset(path_test_rgb, path_test_hs, path_test_dem, path_label, path_test_txt, path_max_dict, path_min_dict, transform=transforms_val, mod="hs") 
+train_set = SegmentationDataset(path_train_rgb, path_train_hs, path_train_dem, path_label, path_train_txt, path_max_dict, path_min_dict, transform=transforms_train, mod="rgb") 
+val_set = SegmentationDataset(path_val_rgb, path_val_hs, path_val_dem, path_label, path_val_txt, path_max_dict, path_min_dict, transform=transforms_val, mod="rgb") 
+test_set = SegmentationDataset(path_test_rgb, path_test_hs, path_test_dem, path_label, path_test_txt, path_max_dict, path_min_dict, transform=transforms_val, mod="rgb") 
 
 # DATA LOADED
 
@@ -124,7 +124,7 @@ plt_model = ModelHandler(model= model,
                          criterion = criterion,
                          params = config, 
                          scheduler = True,
-                         mod = "hs"
+                         mod = "rgb"
                          ) 
 
 logger = TensorBoardLogger(save_dir=os.getcwd()) # da rivedere 
