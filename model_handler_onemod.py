@@ -72,9 +72,9 @@ class ModelHandler(pl.LightningModule):
         outputs = self(samples)
         loss = self.criterion(outputs, targets)
 
-        if batch_idx % 500 == 0:
+        if batch_idx % 100 == 50:
             out_max = torch.argmax(outputs, dim=1)
-            self.show_images(out_max, samples, targets, step="im_train")
+            self.show_images(out_max, samples, targets, step="im_train", batch_id=batch_idx)
 
         self.train_metrics.update(outputs, targets)
         self.log("losses/train_loss", loss, prog_bar=True, logger=True, on_epoch=True, batch_size=self.config["batch_size"])
@@ -98,9 +98,9 @@ class ModelHandler(pl.LightningModule):
         self.valid_metrics.update(outputs, targets)
         self.log("losses/val_loss", loss, prog_bar=True, logger=True, on_epoch=True, batch_size=self.config["batch_size"])
 
-        if batch_idx % 500 == 0:
+        if batch_idx % 100 == 50:
             out_max = torch.argmax(outputs, dim=1)
-            self.show_images(out_max, samples, targets, step="im_val")
+            self.show_images(out_max, samples, targets, step="im_val", batch_id=batch_idx)
 
         self.confmat.update(outputs, targets)
 
@@ -122,9 +122,9 @@ class ModelHandler(pl.LightningModule):
         self.test_metrics.update(outputs, targets)
 
         # show images
-        if batch_idx %2 == 1:
+        if batch_idx %20 == 5:
             out_max = torch.argmax(outputs, dim=1)
-            self.show_images(out_max, samples, targets, step="im_test")
+            self.show_images(out_max, samples, targets, step="im_test", batch_id=batch_idx)
 
         self.confmat.update(outputs, targets)
     
@@ -160,7 +160,7 @@ class ModelHandler(pl.LightningModule):
         
         return im_out
 
-    def show_images(self, out, im, gt, step:str): 
+    def show_images(self, out, im, gt, step:str, batch_id:int): 
 
         # move to cpu and detach
         out = out.cpu().detach()
@@ -191,14 +191,14 @@ class ModelHandler(pl.LightningModule):
         out = torch.clamp(out, min=0, max=1)
         im = torch.clamp(im, min=0, max=1)
         # display semantic layouts
-        self.logger.experiment.add_image(step+'/out_masked', utils.make_grid(out_masked), self.global_step)
-        self.logger.experiment.add_image(step+'/out', utils.make_grid(out), self.global_step)
-        self.logger.experiment.add_image(step+'/gt', utils.make_grid(gt), self.global_step)
+        self.logger.experiment.add_image(step+f'/out_masked_{batch_id}', utils.make_grid(out_masked), self.global_step)
+        self.logger.experiment.add_image(step+f'/out_{batch_id}', utils.make_grid(out), self.global_step)
+        self.logger.experiment.add_image(step+f'/gt_{batch_id}', utils.make_grid(gt), self.global_step)
         # display input images
         if self.modality == 'rgb' or self.modality == 'dem':
-            self.logger.experiment.add_image(step+'/'+self.modality, utils.make_grid(im), self.global_step)
+            self.logger.experiment.add_image(step+'/'+self.modality+f'_{batch_id}', utils.make_grid(im), self.global_step)
         elif self.modality == 'hs':
-            self.logger.experiment.add_image(step+'/'+self.modality, utils.make_grid(im.mean(1).unsqueeze(1)), self.global_step)
+            self.logger.experiment.add_image(step+'/'+self.modality+f'_{batch_id}', utils.make_grid(im.mean(1).unsqueeze(1)), self.global_step)
         else: 
             print("modality not accepted")
         
