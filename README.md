@@ -9,7 +9,9 @@ Experiment1 (**RGB6**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [
 Experiment1 (**RGB7**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, patience=10-->5)
 Experiment1 (**RGB8**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 6, 2], ape=True, patience=10)
 Experiment1 (**RGB9**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, lr=0.0001-->0.00001)
-Experiment1 (**RGB10**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, attn_drop_rate+0.0 -->0.3)
+Experiment1 (**RGB10**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, attn_drop_rate=0.0 -->0.3)
+Experiment1 (**RGB11**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, drop_path_rate=0.0 --> 0.2)
+
 
 | Version | Accuray | Precision | mIoU |
 | ------- | ------- | --------- | ---- |
@@ -22,3 +24,5 @@ Experiment1 (**RGB10**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: 
 | RGB7 | 61.71 | 64.39 | 50.70 | 
 | RGB8 | 63.36 | 67.17 | 53.01 | 
 | RGB9 | 61.70 | 65.47 | 51.41 | 
+| RGB10 | 61.26 | 65.47 | 50.24 | 
+| RGB10 |  |  |  | 
