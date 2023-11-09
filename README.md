@@ -8,27 +8,31 @@
 * Experiment1 (**RGB6**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True)
 * Experiment1 (**RGB7**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, patience=10-->5)
 * Experiment1 (**RGB8**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 6, 2], ape=True, patience=10)
-* Experiment1 (**RGB9**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, lr=0.0001-->0.00001)
-* Experiment1 (**RGB10**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, attn_drop_rate=0.0 -->0.3)
-* Experiment1 (**RGB11**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, wd=0.00001 -->  0.000001)
+* Experiment10 (**RGB9**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, lr=0.0001-->0.00001)
+* Experiment1 (**RGB10**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, attn_drop_rate=0.0 -->0.3, lr:0.00001)
+* Experiment11 (**RGB11**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, wd=0.00001 -->  0.0001, lr:0.00001)
+* Experiment12 (**RGB12**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, wd=0.00001 -->  0.0001, lr:0.0001)
+* Experiment12 (**RGB12**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, wd=0.00001 -->  0.0001, lr:0.0001)
+* Experiment13 (**RGB12**): batch size 4. 8 -->4 (embed dim: 192, attention_heads: [2, 2, 18, 2], ape=True, wd=0.00001, lr:0.0001, mlp_path_ration=4.0--->2.0)
+
+| Version | Accuray | Precision | mIoU  |
+| ------- | ------- | --------- | ----- |
+| RGB1    | 59.82   | 63.95     | 49.75 | 
+| RGB2    | 61.14   | 65.48     | 51.04 |
+| RGB3    | 62.17   | 66.03     | 51.84 |
+| RGB4    | 63.09   | 65.36     | 52.11 |
+| RGB5    | 62.94   | 66.35     | 52.49 |
+| RGB6    | 63.70   | 66.96     | 53.25 | 
+| RGB7    | 61.71   | 64.39     | 50.70 | 
+| RGB8    | 63.36   | 67.17     | 53.01 | 
+| RGB9    | 61.70   | 65.47     | 51.41 | 
+| RGB10   | 61.26   | 65.47     | 50.24 | 
+| RGB11   | 61.46   | 65.51     | 51.13 | 
+| RGB12   | 63.02   | 65.67     | 52.12 | 
 
 
-| Version | Accuray | Precision | mIoU |
-| ------- | ------- | --------- | ---- |
-| RGB1 | 59.82 | 63.95 | 49.75 | 
-| RGB2 | 61.14 | 65.48 | 51.04 |
-| RGB3 | 62.17 | 66.03 | 51.84 |
-| RGB4 | 63.09 | 65.36 | 52.11 |
-| RGB5 | 62.94 | 66.35 | 52.49 |
-| RGB6 | 63.70 | 66.96 | 53.25 | 
-| RGB7 | 61.71 | 64.39 | 50.70 | 
-| RGB8 | 63.36 | 67.17 | 53.01 | 
-| RGB9 | 61.70 | 65.47 | 51.41 | 
-| RGB10 | 61.26 | 65.47 | 50.24 | 
-| RGB11 |  |  |  | 
-
-| Version | Accuracy | Precision | mIoU |
-| ------- | -------- | --------- | ---- |
+| Version | Accuracy | Precision | mIoU  |
+| ------- | -------- | --------- | ----- |
 | RGB1    | 68.45    | 73.37     | 57.71 |
 | RGB2    | 69.71    | 74.91     | 58.34 |
 | RGB3    | 70.74    | 75.43     | 59.55 |
@@ -39,4 +43,5 @@
 | RGB8    | 72.00    | 76.57     | 61.14 |
 | RGB9    | 69.74    | 74.05     | 58.41 |
 | RGB10   | 68.91    | 74.05     | 56.34 |
-| RGB11 |  |  |  | 
+| RGB11   | 70.26    | 74.61     | 58.50 |
+| RGB12   | 71.91    | 75.45     | 59.67 |
