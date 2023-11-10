@@ -44,3 +44,11 @@
 | RGB10   | 68.91    | 74.05     | 56.34 |
 | RGB11   | 70.26    | 74.61     | 58.50 |
 | RGB12   | 71.91    | 75.45     | 59.67 |
+
+* Experiment 1  (**LC1**): batch size: 8, feature channels: [144, 288, 576, 1152], embed dim: 48*3, lr: 0.0001, wd: 0.00001, depth: [2, 2, 6, 2], ape:False, drop_rath:0.0, attn_drop_path_rate:0.3
+
+* Experiment 1  (**LC2**): batch size: 8, feature channels: [144, 288, 576, 1152], embed dim: 48*3, lr: 0.0001, wd: 0.00001, depth: [2, 2, 8, 2], ape:False, drop_rath:0.0, attn_drop_path_rate:0.3
+
+| Version | Accuracy | Precision | mIoU  |
+| ------- | -------- | --------- | ----- |
+| LT1     | 61.28    | 63.78     | 50.18 |
