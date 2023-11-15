@@ -54,7 +54,7 @@ class SegmentationDataset(Dataset):
         label_array = self.import_toarray(path_im_label) 
                 
         im_array_rgb = np.moveaxis(im_array_rgb, 0, -1) 
-        im_array_hs = np.moveaxis(im_array_hs, 0, -1) 
+        # im_array_hs = np.moveaxis(im_array_hs, 0, -1) 
         im_array_dem = np.moveaxis(im_array_dem, 0, -1)
         label_array = np.squeeze(label_array) 
 
