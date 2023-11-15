@@ -4,7 +4,7 @@ from ptflops import get_model_complexity_info
 import json
 
 # from upernet_swin import UperNet_swinù
-from upernet_swin2 import UperNet_swin
+from Fusion.Method_1.upernet_swin_pan import UperNet_swin
 
 # with torch.cuda.device(0):
   # net = models.densenet161()
@@ -12,9 +12,9 @@ from upernet_swin2 import UperNet_swin
   #                                         print_per_layer_stat=True, verbose=True)
   # print('{:<30}  {:<8}'.format('Computational complexity: ', macs))
   # print('{:<30}  {:<8}'.format('Number of parameters: ', params))
-
-
-
+  
+  
+  
 with open('/home/veronica/Scrivania/RSIm/Fusion/Method_1/config.json', 'r') as f:
   config = json.load(f)
 
