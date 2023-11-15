@@ -53,6 +53,7 @@
 
     "rgb_chans":3, 
     "hs_chans":4, 
+    "hs_chans_pan":182,
     "dem_chans":1,
 
     "in_chans_early_fusion":8,
