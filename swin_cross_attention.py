@@ -653,7 +653,10 @@ class SwinTransformer(nn.Module):
     def forward(self, x):
         """Forward function."""
 
-        rgb, hs, _ = x
+        # rgb, hs, _ = x
+        rgb = x[:, :3, :, :]
+        hs = x[:, 3:7, :, :]
+        #dem = x[:, 7, :, :].unsqueeze(0)
         rgb = self.patch_embed_rgb(rgb) 
         hs = self.patch_embed_hs(hs)
 
