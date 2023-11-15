@@ -16,7 +16,7 @@ from swin_one_modality import SwinTransformer
 from upernet import PSPModule, FPN_fuse
 
 import json
-with open('/home/veronica/Scrivania/RSIm/Fusion/Method_1/config.json', 'r') as f:
+with open('./config.json', 'r') as f:
   config = json.load(f)
 
 class UperNet_swin(nn.Module):
@@ -33,9 +33,9 @@ class UperNet_swin(nn.Module):
 
         self.backbone = SwinTransformer(pretrain_img_size= self.config["train_size"][0], 
                                         patch_size=self.config["patch_size"],
-                                        in_chans=self.config["dem_chans"], 
-                                        embed_dim = self.config["embed_dim_T_S"],
-                                        depths = self.config["depths_T"],
+                                        in_chans=self.config["rgb_chans"], 
+                                        embed_dim = self.config["embed_dim_L"], #192
+                                        depths = self.config["depth_S_B_L"], #2,2,18,2
                                         num_heads = self.config["num_heads"],
                                         window_size = self.config["window_size"],
                                         mlp_ratio = self.config["mlp_ratio"],
@@ -45,13 +45,13 @@ class UperNet_swin(nn.Module):
                                         attn_drop_rate= self.config["attn_drop_rate"],
                                         drop_path_rate= self.config["drop_path_rate"],
                                         norm_layer=nn.LayerNorm,
-                                        ape=False,
+                                        ape=True,
                                         patch_norm=True,
                                         out_indices=(0, 1, 2, 3),
                                         # frozen_stages=-1,
                                         use_checkpoint=False)
         
-        feature_channels= self.config["feature_channels_upernet_T_S"]
+        feature_channels= self.config["features_channels_upernet_CF"]  #192...
         self.PPN = PSPModule(in_channels=feature_channels[-1])
         self.FPN = FPN_fuse(feature_channels, fpn_out=feature_channels[0])
         self.head = nn.Conv2d(feature_channels[0], num_classes, kernel_size=3, padding=1)
