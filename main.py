@@ -25,8 +25,7 @@ from model_handler import ModelHandler
 # deterministic = "warn"
 
 # Model
-from upernet_swin_CF import UperNet_swin
-# from upernet_swin_cross_att_DEMHS import UperNet_swin
+from upernet_swin_LateFusion import UperNet_swin
 
 # torch.cuda.empty_cache()
 seed_everything(42, workers=True)
