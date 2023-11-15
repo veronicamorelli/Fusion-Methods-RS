@@ -22,6 +22,12 @@
     "path_mean_dict01" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/mean_dict_01.pkl",
     "path_std_dict01" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_pca/std_dict_01.pkl",
 
+    "path_max_dict_tot" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_total/max_dict.pkl",
+    "path_min_dict_tot" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_total/min_dict.pkl",
+    "path_max_dict01_tot" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_total/max_dict_01.pkl",
+    "path_mean_dict01_tot" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_total/mean_dict_01.pkl",
+    "path_std_dict01_tot" : "/home/veronica/Scrivania/RSIm/stats_dict/Dict_total/std_dict_01.pkl",
+
     "ckpt_path" : "/home/veronica/Scrivania/RSIm/Fusion/Method1/prova1_checkpoint.ckpt",
     
     "input_size": [256, 352],
@@ -30,7 +36,7 @@
     "num_classes":8,
     "p_aug":0.3,
 
-    "batch_size":4, 
+    "batch_size":8, 
     "learning_rate": 0.0001,
     "learning_rate_onemod": 0.0001,
     "weight_decay":0.00001,
@@ -63,7 +69,7 @@
     "depth_S_B_L": [2, 2, 18, 2],
     "num_heads": [3, 6, 12, 24],
     "window_size" : 7,
-    "mlp_ratio": 4.0,
+    "mlp_ratio": 2.0,
     "drop_rate": 0.0,
     "attn_drop_rate": 0.0,
     "drop_path_rate": 0.3,
