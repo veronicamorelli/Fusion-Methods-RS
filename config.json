@@ -7,6 +7,10 @@
     "path_val_hs" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/HS/",
     "path_test_hs" : "/home/veronica/Scrivania/RSIm/Dataset/Test/HS/",
 
+    "path_train_hs_pan" : "/home/veronica/Scrivania/RSIm/Dataset/Train/HS_PAN/",
+    "path_val_hs_pan" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/HS_PAN/",
+    "path_test_hs_pan" : "/home/veronica/Scrivania/RSIm/Dataset/Test/HS_PAN/",
+
     "path_train_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Train/DEM/",
     "path_val_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Validation/DEM/",
     "path_test_dem" : "/home/veronica/Scrivania/RSIm/Dataset/Test/DEM/",
