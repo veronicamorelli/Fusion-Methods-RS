@@ -2,3 +2,6 @@ lightning_logs/
 __pycache__/
 confusion_matrixval.png
 confusion_matrixtest.png
+prova.ipynb
+ex_metrics.py 
+flops_computation.py
